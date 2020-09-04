@@ -9,7 +9,8 @@ class Route{
             echo "aqui";
         }else{
             #codigo de login
-            echo "aca";
+            $login_view = new ViewController();
+            $login_view->load_view("login");
         }
     }
 }
