@@ -1,17 +1,17 @@
 <?php
-require_once("./Models/StatusModel.php");
-class StatusController{
+require_once("./Models/UserModel.php");
+class UserController{
     private $model;
 
     public function __construct(){
-        $this->model = new StatusModel();
+        $this->model = new UserModel();
     }
 
-    public function create($status = []){
-        return $this->model->create($status);
+    public function create($user = []){
+        return $this->model->create($user);
     }
-    public function update($status = []){
-        return $this->model->update($status);
+    public function update($user = []){
+        return $this->model->update($user);
     }
     public function delete($id = ""){
         return $this->model->delete($id);
