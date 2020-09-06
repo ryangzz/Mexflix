@@ -28,4 +28,9 @@ class UserModel extends Model{
         $this->query = "SELECT $campos FROM ".$this->table." $conditions";
         return $this->get_query();
     }
+    public function validate_user($data){
+        $sql = "SELECT * FROM ".$this->table." WHERE email='{$data["email"]}' AND pass='{$data["pass"]}'";
+        $this->query = $sql;
+        return $this->get_query()[0];
+    }
 }

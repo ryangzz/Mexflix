@@ -3,11 +3,11 @@
             <div class="container">
                 <div class="columns is-centered">
                     <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-                        <form action="" class="box">
+                        <form method="POST" class="box" name="formulario">
                             <div class="field">
                                 <label for="" class="label">Correo</label>
                                 <div class="control has-icons-left">
-                                    <input type="email" class="input" required>
+                                    <input type="email" name="email" class="input" required>
                                     <span class="icon is-small is-left">
                                         <i class="fa fa-envelope"></i>
                                     </span>
@@ -16,7 +16,7 @@
                             <div class="field">
                                 <label for="" class="label">Contraseña</label>
                                 <div class="control has-icons-left">
-                                    <input type="password" class="input" required>
+                                    <input type="password" name="pass" class="input" required>
                                     <span class="icon is-small is-left">
                                         <i class="fa fa-lock"></i>
                                     </span>
@@ -29,7 +29,7 @@
                                 </label>
                             </div> -->
                             <div class="field">
-                                <button class="button is-success">
+                                <button type="submit" class="button is-success">
                                     Login
                                 </button>
                             </div>

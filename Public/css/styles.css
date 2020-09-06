@@ -1,0 +1,15 @@
+.navbar {
+    background: #041221;
+}
+
+.navbar-item, .navbar-link {
+    color: #ffffff;
+    display: block;
+    line-height: 1.5;
+    padding: .5rem .75rem;
+    position: relative;
+}
+.navbar-link.is-active, .navbar-link:focus, .navbar-link:focus-within, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover {
+    background-color: #007e8e;
+    color: #5FD2B2;
+}
