@@ -3,11 +3,47 @@ class Route{
     public $route;
 
     public function __construct($route){
+        $this->route=$route;
         session_start();
         $view_controller = new ViewController();
         if(empty($_SESSION)){  $_SESSION["status"] = false;}
         if($_SESSION["status"]){
-            $view_controller->load_view("home");
+            switch ($this->route->parametro1) {
+                case 'movieserie':
+                case 'actores':
+                case 'directores':
+                case 'generos':
+                case 'paises':
+                case 'estatus':
+                    $view_controller->load_view("layout");
+                break;
+            }
+            switch ($this->route->parametro1) {
+                case 'home':
+                    $view_controller->load_view("home");
+                break;
+                case 'movieserie':
+                    $view_controller->load_view("movieserie");
+                break;
+                case 'actores':
+                    $view_controller->load_view("actores");
+                break;
+                case 'directores':
+                    $view_controller->load_view("directores");
+                break;
+                case 'generos':
+                    $view_controller->load_view("generos");
+                break;
+                case 'paises':
+                    $view_controller->load_view("paises");
+                break;
+                case 'estatus':
+                    $view_controller->load_view("estatus");
+                break;
+                default:
+                    $view_controller->load_view("404");
+                break;
+            }
         }else{
             #codigo de login y acceso a la app
             if(isset($_POST["email"]) && isset($_POST["pass"])){
