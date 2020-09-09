@@ -9,6 +9,9 @@ class SessionController{
         return $this->session->validate_user($data);
     }
     public function logaut(){
-
+        session_start();
+        session_unset();
+        session_destroy();
+        header('Location: ./');
     }
 }

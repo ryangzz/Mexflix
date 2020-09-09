@@ -6,6 +6,7 @@ class Route{
         $this->route=$route;
         session_start();
         $view_controller = new ViewController();
+        $sesioncontroller = new SessionController();
         if(empty($_SESSION)){  $_SESSION["status"] = false;}
         if($_SESSION["status"]){
             switch ($this->route->parametro1) {
@@ -15,6 +16,8 @@ class Route{
                 case 'generos':
                 case 'paises':
                 case 'estatus':
+                default:
+                    $view_controller->load_view("navbar");
                     $view_controller->load_view("layout");
                 break;
             }
@@ -40,6 +43,9 @@ class Route{
                 case 'estatus':
                     $view_controller->load_view("estatus");
                 break;
+                case 'salir':
+                    $sesioncontroller->logaut();
+                break;
                 default:
                     $view_controller->load_view("404");
                 break;
@@ -47,7 +53,6 @@ class Route{
         }else{
             #codigo de login y acceso a la app
             if(isset($_POST["email"]) && isset($_POST["pass"])){
-                $sesioncontroller = new SessionController();
                 $session = $sesioncontroller->login($_POST);
                 if(empty($session)){
                     $view_controller->load_view("login");
@@ -65,5 +70,6 @@ class Route{
                 $view_controller->load_view("login");
             }
         }
+        require_once("./Views/templates/footer.php");
     }
 }
